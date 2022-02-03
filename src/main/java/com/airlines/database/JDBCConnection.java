@@ -7,12 +7,7 @@ import java.util.ResourceBundle;
 
 public class JDBCConnection {
 
-    public static void main(String[] args) {
-        JDBCConnection jdbcConnection = new JDBCConnection();
-        Connection dbConnection = jdbcConnection.getDBConnection();
-    }
-
-    protected Connection getDBConnection() {
+    private Connection getDBConnection() {
 
         ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
         String url = resourceBundle.getString("url");

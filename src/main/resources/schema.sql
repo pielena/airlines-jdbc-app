@@ -31,3 +31,4 @@ citizenship VARCHAR(255) ,
 CONSTRAINT crew_member_PK PRIMARY KEY (id) ,
 CONSTRAINT crew_member_crew_FK FOREIGN KEY (crew) REFERENCES crew(id)
 );
+

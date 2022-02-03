@@ -12,3 +12,5 @@ INSERT INTO crew_member VALUES (2, 1, 'Oleg', 'Ivanov', 'FO', '1990-04-28', 'Rus
 INSERT INTO crew_member VALUES (3, 1, 'Igor', 'Petrov', 'SO', '1987-02-23', 'Russian');
 INSERT INTO crew_member VALUES (4, 2, 'Petr', 'Anikeev', 'Captain', '1980-05-17', 'Russian');
 INSERT INTO crew_member VALUES (5, 2, 'Ivan', 'Sidorov', 'FO', '1985-07-19', 'Russian');
+
+
