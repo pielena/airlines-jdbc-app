@@ -7,18 +7,21 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DbConnector {
+    HikariDataSource datasource;
 
-    public Connection getDBConnection() {
-
+    public DbConnector() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
         String url = resourceBundle.getString("url");
         String username = resourceBundle.getString("username");
         String password = resourceBundle.getString("password");
 
-        HikariDataSource datasource = new HikariDataSource();
+        datasource = new HikariDataSource();
         datasource.setJdbcUrl(url);
         datasource.setUsername(username);
         datasource.setPassword(password);
+    }
+
+    public Connection getDBConnection() {
 
         Connection dbConnection = null;
         try {
