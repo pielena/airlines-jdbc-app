@@ -1,6 +1,6 @@
 package com.airlines.dao;
 
-import com.airlines.dao.exception.DaoOperationException;
+import com.airlines.exception.DaoOperationException;
 import com.zaxxer.hikari.HikariDataSource;
 
 import java.sql.Connection;
