@@ -1,5 +1,6 @@
 package com.airlines.dao;
 
+import com.airlines.dao.exception.DaoOperationException;
 import com.zaxxer.hikari.HikariDataSource;
 
 import java.sql.Connection;
@@ -22,14 +23,11 @@ public class DbConnector {
     }
 
     public Connection getDBConnection() {
-
-        Connection dbConnection = null;
         try {
-            dbConnection = datasource.getConnection();
+            return datasource.getConnection();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            throw new DaoOperationException("Can not obtain connection from datasource");
         }
-        return dbConnection;
     }
 
 }
