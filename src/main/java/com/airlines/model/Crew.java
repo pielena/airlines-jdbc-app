@@ -9,9 +9,6 @@ public class Crew {
     private String name;
     private List<CrewMember> crewMembers;
 
-    private Crew() {
-    }
-
     private Crew(int id, String name, List<CrewMember> crewMembers) {
         this.id = id;
         this.name = name;
@@ -32,8 +29,13 @@ public class Crew {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Crew crew)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Crew)) {
+            return false;
+        }
+        Crew crew = (Crew) o;
         return getId() == crew.getId();
     }
 

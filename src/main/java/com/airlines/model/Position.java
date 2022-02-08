@@ -1,10 +1,10 @@
 package com.airlines.model;
 
 public enum Position {
-    Captain,
-    FO,
-    SO,
-    TO,
-    FE,
-    ASO
+    CAPTAIN,
+    FIRST_OFFICER,
+    SECOND_OFFICER,
+    THIRD_OFFICER,
+    FLIGHT_ENGINEER,
+    AIRBORNE_SENSOR_OPERATOR
 }

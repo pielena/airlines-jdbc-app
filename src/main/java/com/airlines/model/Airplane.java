@@ -105,10 +105,14 @@ public class Airplane {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Airplane airplane)) return false;
-        return getId() == airplane.getId() && getCodeName().equals(airplane.getCodeName()) && getModel()
-                .equals(airplane.getModel());
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Airplane)) {
+            return false;
+        }
+        Airplane airplane = (Airplane) o;
+        return getId() == airplane.getId() && Objects.equals(getCodeName(), airplane.getCodeName()) && getModel() == airplane.getModel();
     }
 
     @Override

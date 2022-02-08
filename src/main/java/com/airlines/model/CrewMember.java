@@ -93,11 +93,14 @@ public class CrewMember {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CrewMember that)) return false;
-        return getId() == that.getId() && getFirstName().equals(that.getFirstName()) && getLastName()
-                .equals(that.getLastName()) && getPosition() == that.getPosition() && getBirthday()
-                .equals(that.getBirthday());
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CrewMember)) {
+            return false;
+        }
+        CrewMember that = (CrewMember) o;
+        return getId() == that.getId() && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && getPosition() == that.getPosition() && Objects.equals(getBirthday(), that.getBirthday());
     }
 
     @Override
