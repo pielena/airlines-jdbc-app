@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Objects;
 
 public class Crew {
-    private int id;
-    private String name;
-    private List<CrewMember> crewMembers;
+    private final int id;
+    private final String name;
+    private final List<CrewMember> crewMembers;
 
     private Crew(int id, String name, List<CrewMember> crewMembers) {
         this.id = id;
@@ -36,11 +36,11 @@ public class Crew {
             return false;
         }
         Crew crew = (Crew) o;
-        return getId() == crew.getId();
+        return getId() == crew.getId() && Objects.equals(getName(), crew.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getId(), getName());
     }
 }
