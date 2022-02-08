@@ -14,12 +14,12 @@ VALUES (4, 'A1', 'Airbus A320', '2005-03-20', 180, 6100, 2);
 
 
 INSERT INTO crew_member
-VALUES (1, 1, 'Ivan', 'Smirnov', 'Captain', '1984-01-22', 'Russian');
+VALUES (1, 1, 'Ivan', 'Smirnov', 'Captain', '1984-01-22', 'RUS');
 INSERT INTO crew_member
-VALUES (2, 1, 'Oleg', 'Ivanov', 'FO', '1990-04-28', 'Russian');
+VALUES (2, 1, 'Oleg', 'Ivanov', 'FO', '1990-04-28', 'RUS');
 INSERT INTO crew_member
-VALUES (3, 1, 'Igor', 'Petrov', 'SO', '1987-02-23', 'Russian');
+VALUES (3, 1, 'Igor', 'Petrov', 'SO', '1987-02-23', 'RUS');
 INSERT INTO crew_member
-VALUES (4, 2, 'Petr', 'Anikeev', 'Captain', '1980-05-17', 'Russian');
+VALUES (4, 2, 'Petr', 'Anikeev', 'Captain', '1980-05-17', 'RUS');
 INSERT INTO crew_member
-VALUES (5, 2, 'Ivan', 'Sidorov', 'FO', '1985-07-19', 'Russian');
+VALUES (5, 2, 'Ivan', 'Sidorov', 'FO', '1985-07-19', 'RUS');
