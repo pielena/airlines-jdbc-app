@@ -1,71 +1,107 @@
 package com.airlines.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class CrewMember {
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String position;
-    private LocalDate birthday;
-    private String citizenship;
+    private final int id;
+    private final String firstName;
+    private final String lastName;
+    private final Position position;
+    private final LocalDate birthday;
+    private final Citizenship citizenship;
 
-    public CrewMember() {
-    }
-
-    public CrewMember(int id, String firstName, String lastName, String position, LocalDate birthday) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.position = position;
-        this.birthday = birthday;
+    private CrewMember(Builder builder) {
+        this.id = builder.id;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.position = builder.position;
+        this.birthday = builder.birthday;
+        this.citizenship = builder.citizenship;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPosition() {
+    public Position getPosition() {
         return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
     }
 
     public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getCitizenship() {
+    public Citizenship getCitizenship() {
         return citizenship;
     }
 
-    public void setCitizenship(String citizenship) {
-        this.citizenship = citizenship;
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private int id;
+        private String firstName;
+        private String lastName;
+        private Position position;
+        private LocalDate birthday;
+        private Citizenship citizenship;
+
+        public Builder withId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder withLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder withPosition(Position position) {
+            this.position = position;
+            return this;
+        }
+
+        public Builder withBirthday(LocalDate birthday) {
+            this.birthday = birthday;
+            return this;
+        }
+
+        public Builder withCitizenship(Citizenship citizenship) {
+            this.citizenship = citizenship;
+            return this;
+        }
+
+        public CrewMember Build() {
+            return new CrewMember(this);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CrewMember that)) return false;
+        return getId() == that.getId() && getFirstName().equals(that.getFirstName()) && getLastName()
+                .equals(that.getLastName()) && getPosition() == that.getPosition() && getBirthday()
+                .equals(that.getBirthday());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLastName(), getPosition(), getBirthday());
     }
 }

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS airplane
     model            VARCHAR(50) NOT NULL,
     manufacture_date DATE        NOT NULL,
     capacity         INT,
-    flight_range     DECIMAL     NOT NULL,
+    flight_range     INT         NOT NULL,
     crew_id          BIGINT      NOT NULL,
 
     CONSTRAINT airplane_PK PRIMARY KEY (id),
