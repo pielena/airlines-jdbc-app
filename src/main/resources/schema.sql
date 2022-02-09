@@ -23,12 +23,12 @@ CREATE TABLE IF NOT EXISTS airplane
 CREATE TABLE IF NOT EXISTS crew_member
 (
     id          BIGINT AUTO_INCREMENT,
-    crew_id     BIGINT      NOT NULL,
     first_name  VARCHAR(50) NOT NULL,
     last_name   VARCHAR(50) NOT NULL,
     position    VARCHAR(50) NOT NULL,
     birthday    DATE        NOT NULL,
     citizenship VARCHAR(25),
+    crew_id     BIGINT      NOT NULL,
 
     CONSTRAINT crew_member_PK PRIMARY KEY (id),
     CONSTRAINT crew_member_crew_FK FOREIGN KEY (crew_id) REFERENCES crew (id)

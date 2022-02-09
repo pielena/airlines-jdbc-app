@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class CrewMember {
     private final int id;
+    private final int crewId;
     private final String firstName;
     private final String lastName;
     private final Position position;
@@ -13,6 +14,7 @@ public class CrewMember {
 
     private CrewMember(Builder builder) {
         this.id = builder.id;
+        this.crewId = builder.crewId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.position = builder.position;
@@ -22,6 +24,10 @@ public class CrewMember {
 
     public int getId() {
         return id;
+    }
+
+    public int getCrewId() {
+        return crewId;
     }
 
     public String getFirstName() {
@@ -50,6 +56,7 @@ public class CrewMember {
 
     public static class Builder {
         private int id;
+        private int crewId;
         private String firstName;
         private String lastName;
         private Position position;
@@ -58,6 +65,11 @@ public class CrewMember {
 
         public Builder withId(int id) {
             this.id = id;
+            return this;
+        }
+
+        public Builder withCrewId(int crewId) {
+            this.crewId = crewId;
             return this;
         }
 
@@ -86,7 +98,7 @@ public class CrewMember {
             return this;
         }
 
-        public CrewMember Build() {
+        public CrewMember build() {
             return new CrewMember(this);
         }
     }
@@ -100,11 +112,11 @@ public class CrewMember {
             return false;
         }
         CrewMember that = (CrewMember) o;
-        return getId() == that.getId() && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && getPosition() == that.getPosition() && Objects.equals(getBirthday(), that.getBirthday());
+        return getId() == that.getId() && getCrewId() == that.getCrewId() && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && getPosition() == that.getPosition() && Objects.equals(getBirthday(), that.getBirthday());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getPosition(), getBirthday());
+        return Objects.hash(getId(), getCrewId(), getFirstName(), getLastName(), getPosition(), getBirthday());
     }
 }
