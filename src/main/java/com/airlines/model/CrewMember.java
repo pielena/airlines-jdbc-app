@@ -10,6 +10,7 @@ public class CrewMember {
     private final Position position;
     private final LocalDate birthday;
     private final Citizenship citizenship;
+    private final int crewId;
 
     private CrewMember(Builder builder) {
         this.id = builder.id;
@@ -18,6 +19,7 @@ public class CrewMember {
         this.position = builder.position;
         this.birthday = builder.birthday;
         this.citizenship = builder.citizenship;
+        this.crewId = builder.crewId;
     }
 
     public int getId() {
@@ -44,6 +46,10 @@ public class CrewMember {
         return citizenship;
     }
 
+    public int getCrewId() {
+        return crewId;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -55,6 +61,7 @@ public class CrewMember {
         private Position position;
         private LocalDate birthday;
         private Citizenship citizenship;
+        private int crewId;
 
         public Builder withId(int id) {
             this.id = id;
@@ -86,7 +93,12 @@ public class CrewMember {
             return this;
         }
 
-        public CrewMember Build() {
+        public Builder withCrewId(int crewId) {
+            this.crewId = crewId;
+            return this;
+        }
+
+        public CrewMember build() {
             return new CrewMember(this);
         }
     }
