@@ -31,8 +31,8 @@ public class CrewDaoImpl implements CrewDao {
     }
 
     @Override
-    public List<CrewMember> getCrewMembersByCrewID(int crewId) {
-        try (Connection connection = dbConnector.getDBConnection();
+    public List<CrewMember> getCrewMembersByCrewId(int crewId) {
+        try (Connection connection = dbConnector.getDbConnection();
              PreparedStatement selectByCrewIdStatement = connection.prepareStatement(SELECT_CREW_MEMBERS_BY_CREW_ID_QUERY)) {
 
             selectByCrewIdStatement.setInt(1, crewId);
@@ -45,7 +45,7 @@ public class CrewDaoImpl implements CrewDao {
 
     @Override
     public List<CrewMember> getCrewMembersByCrewName(String crewName) {
-        try (Connection connection = dbConnector.getDBConnection();
+        try (Connection connection = dbConnector.getDbConnection();
              PreparedStatement selectByCrewNameStatement = connection.prepareStatement(SELECT_CREW_MEMBERS_BY_CREW_NAME_QUERY)) {
 
             selectByCrewNameStatement.setString(1, crewName);
@@ -57,8 +57,8 @@ public class CrewDaoImpl implements CrewDao {
     }
 
     private List<CrewMember> fillList(ResultSet resultSet) {
-        List<CrewMember> crewMembers = new ArrayList<>();
         try {
+            List<CrewMember> crewMembers = new ArrayList<>();
             while (resultSet.next()) {
                 CrewMember crewMember = CrewMember.builder()
                         .withId(resultSet.getInt("id"))
@@ -71,9 +71,9 @@ public class CrewDaoImpl implements CrewDao {
                         .build();
                 crewMembers.add(crewMember);
             }
+            return crewMembers;
         } catch (SQLException e) {
             throw new DaoOperationException("Error filling crew members list", e);
         }
-        return crewMembers;
     }
 }

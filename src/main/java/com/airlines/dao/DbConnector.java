@@ -22,7 +22,7 @@ public class DbConnector {
         datasource.setPassword(password);
     }
 
-    public Connection getDBConnection() {
+    public Connection getDbConnection() {
         try {
             return datasource.getConnection();
         } catch (SQLException e) {

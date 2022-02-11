@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CrewDao {
 
-    List<CrewMember> getCrewMembersByCrewID(int crewID);
+    List<CrewMember> getCrewMembersByCrewId(int crewId);
 
     List<CrewMember> getCrewMembersByCrewName(String crewName);
 }
