@@ -10,4 +10,6 @@ public interface CrewMemberDao {
 
     CrewMember findById(int id);
 
+    void addCrewMemberToCrew(CrewMember crewMember, int crewId);
+
 }
