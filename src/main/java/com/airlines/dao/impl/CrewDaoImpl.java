@@ -31,7 +31,7 @@ public class CrewDaoImpl implements CrewDao {
     }
 
     @Override
-    public List<CrewMember> getCrewMembersByCrewId(int crewId) {
+    public List<CrewMember> getCrewMembersByCrewId(Integer crewId) {
         try (Connection connection = dbConnector.getDbConnection();
              PreparedStatement selectByCrewIdStatement = connection.prepareStatement(SELECT_CREW_MEMBERS_BY_CREW_ID_QUERY)) {
 

@@ -17,9 +17,9 @@ import java.util.Objects;
 
 public class AirplaneDaoImpl implements AirplaneDao {
 
-    private final static String INSERT_AIRPLANE_QUERY =
-            "INSERT INTO airplane (id, code_name, model, manufacture_date, capacity, flight_range, crew_id) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?);";
+    private final static String INSERT_AIRPLANE_QUERY = """
+            INSERT INTO airplane (id, code_name, model, manufacture_date, capacity, flight_range, crew_id)
+            VALUES(?, ?, ?, ?, ?, ?, ?);""";
     private final static String SELECT_AIRPLANE_BY_ID_QUERY = "SELECT * FROM airplane WHERE id = ?;";
     private final static String SELECT_ALL_AIRPLANES_QUERY = "SELECT * FROM airplane;";
     private static final String DELETE_AIRPLANE_QUERY = "DELETE FROM airplane WHERE id = ?;";
@@ -58,7 +58,7 @@ public class AirplaneDaoImpl implements AirplaneDao {
     }
 
     @Override
-    public Airplane findById(int id) {
+    public Airplane findById(Integer id) {
         try (Connection connection = dbConnector.getDbConnection();
              PreparedStatement selectByIdStatement = connection.prepareStatement(SELECT_AIRPLANE_BY_ID_QUERY)) {
 
@@ -99,8 +99,8 @@ public class AirplaneDaoImpl implements AirplaneDao {
     public void delete(Airplane airplane) {
         Objects.requireNonNull(airplane);
 
-        if (airplane.getId() == 0) {
-            throw new DaoOperationException("Cannot find airplane without id");
+        if (airplane.getId() == null || airplane.getId() < 1) {
+            throw new DaoOperationException("Cannot find airplane without correct id");
         }
 
         try (Connection connection = dbConnector.getDbConnection();
@@ -130,11 +130,11 @@ public class AirplaneDaoImpl implements AirplaneDao {
     }
 
     @Override
-    public void updateAirplaneWithCrew(Airplane airplane, int crewId) {
+    public void updateAirplaneWithCrew(Airplane airplane, Integer crewId) {
         Objects.requireNonNull(airplane);
 
-        if (airplane.getId() == 0) {
-            throw new DaoOperationException("Cannot update airplane without id");
+        if (airplane.getId() == null || airplane.getId() < 1) {
+            throw new DaoOperationException("Cannot update airplane without correct id");
         }
 
         try (Connection connection = dbConnector.getDbConnection();

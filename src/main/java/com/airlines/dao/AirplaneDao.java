@@ -8,7 +8,7 @@ public interface AirplaneDao {
 
     void save(Airplane airplane);
 
-    Airplane findById(int id);
+    Airplane findById(Integer id);
 
     List<Airplane> findAll();
 
@@ -16,5 +16,5 @@ public interface AirplaneDao {
 
     List<Airplane> getAirplanesByCrewName(String crewName);
 
-    void updateAirplaneWithCrew(Airplane airplane, int crewId);
+    void updateAirplaneWithCrew(Airplane airplane, Integer crewId);
 }
