@@ -119,9 +119,4 @@ public class Airplane {
     public int hashCode() {
         return Objects.hash(getId(), getCodeName(), getModel());
     }
-
-    @Override
-    public String toString() {
-        return "Airplane{id=%d, codeName='%s', model=%s, manufactureDate=%s, capacity=%d, flightRange=%d, crewId=%d}".formatted(id, codeName, model, manufactureDate, capacity, flightRange, crewId);
-    }
 }

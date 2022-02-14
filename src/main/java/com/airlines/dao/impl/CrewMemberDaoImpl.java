@@ -7,7 +7,11 @@ import com.airlines.model.Citizenship;
 import com.airlines.model.CrewMember;
 import com.airlines.model.Position;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class CrewMemberDaoImpl implements CrewMemberDao {

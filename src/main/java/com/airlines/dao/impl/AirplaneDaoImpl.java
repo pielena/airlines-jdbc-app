@@ -53,7 +53,7 @@ public class AirplaneDaoImpl implements AirplaneDao {
             insertStatement.setInt(7, airplane.getCrewId());
             insertStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new DaoOperationException("Error saving airplane" + airplane, e);
+            throw new DaoOperationException("Error saving airplane" + airplane.getCodeName(), e);
         }
     }
 
