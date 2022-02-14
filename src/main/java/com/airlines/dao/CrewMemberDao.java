@@ -8,8 +8,8 @@ public interface CrewMemberDao {
 
     void update(CrewMember crewMember);
 
-    CrewMember findById(int id);
+    CrewMember findById(Integer id);
 
-    void addCrewMemberToCrew(CrewMember crewMember, int crewId);
+    void addCrewMemberToCrew(CrewMember crewMember, Integer crewId);
 
 }

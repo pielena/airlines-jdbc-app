@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Airplane {
-    private final int id;
+    private final Integer id;
     private final String codeName;
     private final AirplaneModel model;
     private final LocalDate manufactureDate;
     private final int capacity;
     private final int flightRange;
-    private final int crewId;
+    private final Integer crewId;
 
     private Airplane(Builder builder) {
         this.id = builder.id;
@@ -22,7 +22,7 @@ public class Airplane {
         this.crewId = builder.crewId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -46,7 +46,7 @@ public class Airplane {
         return flightRange;
     }
 
-    public int getCrewId() {
+    public Integer getCrewId() {
         return crewId;
     }
 
@@ -55,15 +55,15 @@ public class Airplane {
     }
 
     public static class Builder {
-        private int id;
+        private Integer id;
         private String codeName;
         private AirplaneModel model;
         private LocalDate manufactureDate;
         private int capacity;
         private int flightRange;
-        private int crewId;
+        private Integer crewId;
 
-        public Builder withId(int id) {
+        public Builder withId(Integer id) {
             this.id = id;
             return this;
         }
@@ -93,7 +93,7 @@ public class Airplane {
             return this;
         }
 
-        public Builder withCrewId(int crewId) {
+        public Builder withCrewId(Integer crewId) {
             this.crewId = crewId;
             return this;
         }
@@ -112,7 +112,7 @@ public class Airplane {
             return false;
         }
         Airplane airplane = (Airplane) o;
-        return getId() == airplane.getId() && Objects.equals(getCodeName(), airplane.getCodeName()) && getModel() == airplane.getModel();
+        return Objects.equals(getId(), airplane.getId()) && Objects.equals(getCodeName(), airplane.getCodeName()) && getModel() == airplane.getModel();
     }
 
     @Override

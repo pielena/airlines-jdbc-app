@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class CrewMember {
-    private final int id;
+    private final Integer id;
     private final String firstName;
     private final String lastName;
     private final Position position;
     private final LocalDate birthday;
     private final Citizenship citizenship;
-    private final int crewId;
+    private final Integer crewId;
 
     private CrewMember(Builder builder) {
         this.id = builder.id;
@@ -22,7 +22,7 @@ public class CrewMember {
         this.crewId = builder.crewId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -46,7 +46,7 @@ public class CrewMember {
         return citizenship;
     }
 
-    public int getCrewId() {
+    public Integer getCrewId() {
         return crewId;
     }
 
@@ -55,15 +55,15 @@ public class CrewMember {
     }
 
     public static class Builder {
-        private int id;
+        private Integer id;
         private String firstName;
         private String lastName;
         private Position position;
         private LocalDate birthday;
         private Citizenship citizenship;
-        private int crewId;
+        private Integer crewId;
 
-        public Builder withId(int id) {
+        public Builder withId(Integer id) {
             this.id = id;
             return this;
         }
@@ -93,7 +93,7 @@ public class CrewMember {
             return this;
         }
 
-        public Builder withCrewId(int crewId) {
+        public Builder withCrewId(Integer crewId) {
             this.crewId = crewId;
             return this;
         }
@@ -112,7 +112,7 @@ public class CrewMember {
             return false;
         }
         CrewMember that = (CrewMember) o;
-        return getId() == that.getId() && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && getPosition() == that.getPosition() && Objects.equals(getBirthday(), that.getBirthday());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && getPosition() == that.getPosition() && Objects.equals(getBirthday(), that.getBirthday());
     }
 
     @Override

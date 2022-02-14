@@ -4,13 +4,13 @@ INSERT INTO crew
 VALUES (2, 'Team2');
 
 INSERT INTO airplane
-VALUES (1, 'S1', 'SSJ-95', '2012-08-23', 98, 3050, 1);
+VALUES (1, 'S1', 'SSJ_95', '2012-08-23', 98, 3050, 1);
 INSERT INTO airplane
-VALUES (2, 'B1', 'Boeing 737-800', '2010-09-30', 189, 5400, 1);
+VALUES (2, 'B1', 'BOEING_737_800', '2010-09-30', 189, 5400, 1);
 INSERT INTO airplane
-VALUES (3, 'T1', 'Tu-134', '1989-08-23', 76, 2770, 2);
+VALUES (3, 'T1', 'TU_134', '1989-08-23', 76, 2770, 2);
 INSERT INTO airplane
-VALUES (4, 'A1', 'Airbus A320', '2005-03-20', 180, 6100, 2);
+VALUES (4, 'A1', 'AIRBUS_A320', '2005-03-20', 180, 6100, 2);
 
 
 INSERT INTO crew_member

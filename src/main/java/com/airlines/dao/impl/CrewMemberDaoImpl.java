@@ -16,12 +16,12 @@ import java.util.Objects;
 
 public class CrewMemberDaoImpl implements CrewMemberDao {
 
-    private final static String INSERT_CREW_MEMBER_QUERY =
-            "INSERT INTO crew_member(id, first_name, last_name, position, birthday, citizenship, crew_id) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?);";
-    private final static String UPDATE_CREW_MEMBER_QUERY =
-            "UPDATE crew_member SET first_name = ?, last_name = ?, position = ?, birthday = ?, citizenship = ? " +
-                    "WHERE id = ?;";
+    private final static String INSERT_CREW_MEMBER_QUERY = """ 
+            INSERT INTO crew_member(id, first_name, last_name, position, birthday, citizenship, crew_id)
+            VALUES(?, ?, ?, ?, ?, ?, ?);""";
+    private final static String UPDATE_CREW_MEMBER_QUERY = """ 
+            UPDATE crew_member SET first_name = ?, last_name = ?, position = ?, birthday = ?, citizenship = ?
+            WHERE id = ?;""";
     private final static String SELECT_CREW_MEMBER_BY_ID_QUERY = "SELECT * FROM crew_member WHERE id = ?;";
     private final static String UPDATE_CREW_ID_QUERY = "UPDATE crew_member SET crew_id = ? WHERE id = ?;";
 
@@ -55,8 +55,8 @@ public class CrewMemberDaoImpl implements CrewMemberDao {
     public void update(CrewMember crewMember) {
         Objects.requireNonNull(crewMember);
 
-        if (crewMember.getId() == 0) {
-            throw new DaoOperationException("Cannot find a crew member without id");
+        if (crewMember.getId() == null || crewMember.getId() < 1) {
+            throw new DaoOperationException("Cannot find a crew member without correct id");
         }
 
         try (Connection connection = dbConnector.getDbConnection();
@@ -79,7 +79,7 @@ public class CrewMemberDaoImpl implements CrewMemberDao {
     }
 
     @Override
-    public CrewMember findById(int id) {
+    public CrewMember findById(Integer id) {
         try (Connection connection = dbConnector.getDbConnection();
              PreparedStatement selectByIdStatement = connection.prepareStatement(SELECT_CREW_MEMBER_BY_ID_QUERY)) {
 
@@ -105,11 +105,11 @@ public class CrewMemberDaoImpl implements CrewMemberDao {
     }
 
     @Override
-    public void addCrewMemberToCrew(CrewMember crewMember, int crewId) {
+    public void addCrewMemberToCrew(CrewMember crewMember, Integer crewId) {
         Objects.requireNonNull(crewMember);
 
-        if (crewMember.getId() == 0) {
-            throw new DaoOperationException("Cannot find a crew member without id");
+        if (crewMember.getId() == null || crewMember.getId() < 1) {
+            throw new DaoOperationException("Cannot find a crew member without correct id");
         }
 
         try (Connection connection = dbConnector.getDbConnection();
